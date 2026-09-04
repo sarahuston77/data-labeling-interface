@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>History</title>
+    </head>
+    <body>
+        USER: {{FIRST_NAME}} {{LAST_NAME}}<br></br>
+
+        <table>
+            <tr>
+                <th>Tweet</th>
+                <th>Label</th>
+            </tr>
+            {% for tweet, tweet_id, emotion in RESPONSES %}
+            <tr>
+                <td>{{ tweet }}</td>
+                <td>{{ emotion }}</td>
+            </tr>
+            {% endfor %}
+            <tr>
+                <td>Total:</td>
+                <td>{{TOTAL_COMPLETED}}</td>
+            </tr>
+        </table>
+
+        <form action="{{url_for('logout')}}" method="post" enctype="multipart/form-data">
+            <input type="submit" name="logout" value="Logout" />
+        </form>
+    </body>
+</html>

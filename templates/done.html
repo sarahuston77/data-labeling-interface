@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>DONE!</title>
+    </head>
+    <body>
+        You have completed {{TOTAL_COMPLETED}} labels in total.
+        <form action="{{url_for('history')}}" method="GET" enctype="multipart/form-data">
+            <input type="submit" name="progress" value="History"/>
+        </form>
+
+        <form action="{{url_for('logout')}}" method="post" enctype="multipart/form-data">
+            <input type="submit" name="logout" value="Logout" />
+        </form>
+    </body>
+</html>

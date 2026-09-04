@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Label</title>
+    <style>
+      .bar {
+        width: 300px;
+        height: 24px;
+        border: 1px solid #333;
+        background: #eee;
+        overflow: hidden;
+        border-radius: 4px;
+      }
+      .fill {
+        height: 100%;
+        background: #4caf50;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="bar">
+      <div class="fill" style="width: {{ percent }}%;"></div>
+    </div>
+    <p>{{ percent }}% finished</p>
+
+    <p>TWEET: {{ TWEET }}</p>
+
+    {% for emotion_id, emotion in EMOTIONS %}
+      <form action="" method="post">
+        <button name="EMOTION" value="{{ emotion_id }}">{{ emotion }}</button>
+        <input type="hidden" name="EMOTION_ID" value="{{ emotion_id }}">
+        <input type="hidden" name="TWEET_ID" value="{{ TWEET_ID }}">
+      </form>
+    {% endfor %}
+
+    <form action="{{ url_for('logout') }}" method="post" enctype="multipart/form-data">
+      <input type="submit" name="logout" value="Logout" />
+    </form>
+  </body>
+</html>

@@ -1,0 +1,3 @@
+DATABASE_FILENAME = "database.db"
+SESSION_PERMANENT = False
+SESSION_TYPE = "filesystem"
