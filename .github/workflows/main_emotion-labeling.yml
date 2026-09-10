@@ -72,5 +72,5 @@ jobs:
         id: deploy-to-webapp
         with:
           app-name: 'emotion-labeling'
-          slot-name: 'Production'
+          slot-name: 'production'
           
