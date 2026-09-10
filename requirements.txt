@@ -1,3 +1,6 @@
 datasets
-flask
 flask_session
+build
+waitress
+gunicorn==20.1.0
+setuptools<81
