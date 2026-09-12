@@ -27,6 +27,13 @@
       border: 1px solid #888;
       background-color: #ddd;
     }
+    .mydiv {
+      display: grid;
+    }
+
+    .mydiv>button {
+      grid-area: 1/1;
+    }
     </style>
   </head>
   <body>
@@ -41,11 +48,13 @@
 
     {% for emotion_id, emotion, definition in EMOTIONS %}
       <form action="" method="post">
-        <button name="EMOTION" value="{{ emotion_id }}">{{ emotion }}</button>
-        <input type="hidden" name="EMOTION_ID" value="{{ emotion_id }}">
-        <input type="hidden" name="TWEET_ID" value="{{ TWEET_ID }}">
-        {{definition}}
-        <button class="addMore" title={{definition}}>?</button>
+        <div class="mydiv">
+          <button name="EMOTION" style="width:100%; height:30px;" value="{{ emotion_id }}">{{ emotion }}</button>
+          <input type="hidden" name="EMOTION_ID" value="{{ emotion_id }}">
+          <input type="hidden" name="TWEET_ID" value="{{ TWEET_ID }}">
+          {{definition}}
+          <text class="addMore" style="width:80px; height:20px;place-self: center end" title={{definition}}>?</text>
+        </div>
       </form>
       {% endfor %}
 
