@@ -16,6 +16,7 @@
         background: #4caf50;
       }
       .addMore {
+        position: relative;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -25,7 +26,6 @@
 
         border: 1px solid #ccc;
         border-radius: 50%;
-
         background-color: #eee;
         color: #555;
 
@@ -33,9 +33,36 @@
         font-weight: bold;
         text-align: center;
     }
-    .addMore:hover {
-        background-color: #ddd;
-        border-color: #999;
+
+    .addMore::after {
+        content: attr(data-tooltip);
+        position: absolute;
+        z-index: 1000;
+
+        bottom: calc(100% + 6px);
+        right: 0;
+
+        width: max-content;
+        max-width: 300px;
+        padding: 6px 9px;
+
+        background: #333;
+        color: white;
+        border-radius: 4px;
+
+        font-size: 13px;
+        font-weight: normal;
+        text-align: left;
+        white-space: normal;
+
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+    }
+
+    .addMore:hover::after {
+        opacity: 1;
+        visibility: visible;
     }
     .emotion-row {
         display: flex;
@@ -71,7 +98,7 @@
           <button name="EMOTION" style="width:30%; height:30px;" value="{{ emotion_id }}">{{ emotion }}</button>
           <input type="hidden" name="EMOTION_ID" value="{{ emotion_id }}">
           <input type="hidden" name="TWEET_ID" value="{{ TWEET_ID }}">
-          <span class="addMore" style="width:40px; height:20px;place-self: center end" title="{{definition}}">?</span>
+          <span class="addMore" style="width:40px; height:20px; place-self:center end" data-tooltip="{{definition}}">?</span>
         </div>
       </form>
       {% endfor %}
