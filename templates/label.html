@@ -15,17 +15,27 @@
         height: 100%;
         background: #4caf50;
       }
-    .addMore{
-      border: none;
-      width: 32px;
-      height: 32px;
-      background-color: #eee;
-      transition: all ease-in-out 0.001s;
-      cursor: pointer;
+      .addMore {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        width: 24px;
+        height: 24px;
+
+        border: 1px solid #ccc;
+        border-radius: 50%;
+
+        background-color: #eee;
+        color: #555;
+
+        cursor: help;
+        font-weight: bold;
+        text-align: center;
     }
-    .addMore:hover{
-      border: 1px solid #888;
-      background-color: #ddd;
+    .addMore:hover {
+        background-color: #ddd;
+        border-color: #999;
     }
     .mydiv {
       display: grid;
@@ -53,7 +63,7 @@
           <input type="hidden" name="EMOTION_ID" value="{{ emotion_id }}">
           <input type="hidden" name="TWEET_ID" value="{{ TWEET_ID }}">
           {{definition}}
-          <text class="addMore" style="width:80px; height:20px;place-self: center end" title="{{definition}}"">?</text>
+          <text class="addMore" style="width:80px; height:20px;place-self: center end" title="{{definition}}">?</text>
         </div>
       </form>
       {% endfor %}
