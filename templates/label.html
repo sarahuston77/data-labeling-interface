@@ -20,7 +20,7 @@
       width: 32px;
       height: 32px;
       background-color: #eee;
-      transition: all ease-in-out 0.2s;
+      transition: all ease-in-out 0.001s;
       cursor: pointer;
     }
     .addMore:hover{
@@ -44,6 +44,7 @@
         <button name="EMOTION" value="{{ emotion_id }}">{{ emotion }}</button>
         <input type="hidden" name="EMOTION_ID" value="{{ emotion_id }}">
         <input type="hidden" name="TWEET_ID" value="{{ TWEET_ID }}">
+        {{definition}}
         <button class="addMore" title={{definition}}>?</button>
       </form>
       {% endfor %}
