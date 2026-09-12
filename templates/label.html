@@ -37,8 +37,17 @@
         background-color: #ddd;
         border-color: #999;
     }
-    .mydiv {
-      display: grid;
+    .emotion-row {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        width: 100%;
+    }
+
+    .emotion-row button {
+        flex: 1;
+        height: 30px;
+        box-sizing: border-box;
     }
 
     .mydiv>button {
@@ -58,7 +67,7 @@
 
     {% for emotion_id, emotion, definition in EMOTIONS %}
       <form action="" method="post">
-        <div class="mydiv">
+        <div class="emotion-row">
           <button name="EMOTION" style="width:30%; height:30px;" value="{{ emotion_id }}">{{ emotion }}</button>
           <input type="hidden" name="EMOTION_ID" value="{{ emotion_id }}">
           <input type="hidden" name="TWEET_ID" value="{{ TWEET_ID }}">
