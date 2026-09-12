@@ -81,7 +81,8 @@ def label():
             TWEET, TWEET_ID = session["TWEETS"][-1]
             EMOTIONS = executeSQL('''SELECT * FROM EMOTIONS;''')
             return render_template("label.html", EMOTIONS = EMOTIONS, TWEET = TWEET, TWEET_ID = TWEET_ID, 
-                                   percent = completedTweets() / 5 * 100, USER = session.get("FIRST_NAME") + " " + session.get("LAST_NAME"))
+                                   percent = completedTweets() / 5 * 100, 
+                                   USER = session.get("FIRST_NAME") + " " + session.get("LAST_NAME"))
 
 @app.route('/history', methods=['GET', 'POST']) 
 def history():
